@@ -12,7 +12,7 @@ function Main(props) {
         {
           props.films.map((film) => {
             return (
-              <Film key={film.imdbID} film={film} onCardClick={props.onCardClick} />
+              <Film key={film.imdbID} film={film} onCardClick={props.onCardClick} isLoading={props.isLoading} />
             )
           })
         }

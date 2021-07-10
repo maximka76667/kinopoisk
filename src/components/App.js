@@ -16,6 +16,7 @@ function App() {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 
   const [isSearching, setIsSearching] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   function handleChange(e) {
     setTitle(e.target.value);
@@ -35,6 +36,7 @@ function App() {
   }
 
   function handleCardClick(film) {
+    setIsLoading(true);
     if(film.imdbID !== activeID) {
       setActiveID(film.imdbID);
       setFilmInfo(film);
@@ -44,6 +46,7 @@ function App() {
         setIsPopupOpen(true);
       })
       .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
     } else {
       setIsPopupOpen(true);
     }
@@ -56,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} />
+      <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} isLoading={isLoading} />
       <Popup isPopupOpen={isPopupOpen} closePopup={handlePopupClose} filmInfo={filmInfo} filmDetails={filmDetails} />
       <Footer />
     </div>

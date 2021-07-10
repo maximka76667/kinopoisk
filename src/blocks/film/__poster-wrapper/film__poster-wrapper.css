@@ -1,0 +1,27 @@
+.film__poster-wrapper {
+  position: relative;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.film__poster-wrapper::before {
+  display: block;
+  content: '';
+  background-color: rgba(255, 255, 255, 0.705);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.film__poster-wrapper:hover::before {
+  opacity: 0.3;
+}
+
+.film__poster-wrapper_loading::before {
+  content: '';
+  background: url(../../../images/loading.gif) 50% no-repeat;
+}
