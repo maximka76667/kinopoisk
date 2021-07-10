@@ -1,4 +1,7 @@
 .films {
-  display: flex;
-  flex-wrap: wrap;
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-auto-rows: 500px;
+  gap: 50px;
 }

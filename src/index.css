@@ -1,9 +1,22 @@
 /* Blocks */
+@import url(./blocks/header/header.css);
+@import url(./blocks/form/form.css);
 @import url(./blocks/films/films.css);
+@import url(./blocks/film/film.css);
 @import url(./blocks/popup/popup.css);
 
 /* Elements */
 
+/* Header elements */
+@import url(./blocks/header/__heading/header__heading.css);
+
+/* Form elements */
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__submit-button/form__submit-button.css);
+
+/* Film elements */
+
+/* Popup elements */
 @import url(./blocks/popup/__overlay/popup__overlay.css);
 
 /* Modifiers */

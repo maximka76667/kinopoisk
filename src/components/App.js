@@ -1,7 +1,11 @@
 import React from 'react'
 import api from '../utils/api'
+import Footer from './Footer';
+import Header from './Header';
+import Main from './Main';
+import Popup from './Popup';
 
-function App(props) {
+function App() {
 
   const [title, setTitle] = React.useState('');
   const [films, setFilms] = React.useState([]);
@@ -11,7 +15,7 @@ function App(props) {
 
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 
-  const currentYear = new Date().getFullYear();
+  const [isSearching, setIsSearching] = React.useState(false);
 
   function handleChange(e) {
     setTitle(e.target.value);
@@ -20,12 +24,14 @@ function App(props) {
   function handleSearch(e) {
     e.preventDefault();
 
+    setIsSearching(true);
     api.searchFilmsByName(title)
     .then(res => {
       setFilms(res.Search);
       console.log(res.Search);
     })
     .catch((err) => console.log(err))
+    .finally(() => setIsSearching(false))
   }
 
   function handleCardClick(film) {
@@ -37,52 +43,22 @@ function App(props) {
         setFilmDetails(res);
         setIsPopupOpen(true);
       })
+      .catch((err) => console.log(err))
     } else {
       setIsPopupOpen(true);
     }
   }
 
-  function handleCardClose() {
+  function handlePopupClose() {
     setIsPopupOpen(false);
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>KinoPoisk</h1>
-      </header>
-      <main>
-        <form onSubmit={handleSearch}>
-          <input id="title" value={title} onChange={handleChange} required />
-          <button type="submit">Поиск</button>
-        </form>
-        <div className="films">
-          {
-            films.map((film) => {
-              return (
-                <div key={film.imdbID} onClick={() => handleCardClick(film)}>
-                  <img src={film.Poster} alt={film.Title} />
-                  <p>{film.Title} {film.Year}</p>
-                </div>
-              )
-            })
-          }
-        </div>
-        <div className={`popup ${isPopupOpen ? 'popup_opened' : ''}`}>
-          <div className="popup__overlay" onClick={handleCardClose}></div>
-          <div className="popup__container">
-            <img src={filmInfo.Poster} alt={filmInfo.Title} />
-            <h2>{filmInfo.Title}</h2>
-            <p>{filmInfo.Year}</p>
-            <p>{filmDetails.Plot}</p>
-            <p>{filmDetails.Runtime}</p>
-            <button onClick={handleCardClose}>Закрыть</button>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <p>©{currentYear} Maxim Grivennyy with <a href="http://www.omdbapi.com/">OMDb API</a></p>
-      </footer>
+      <Header />
+      <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} />
+      <Popup isPopupOpen={isPopupOpen} closePopup={handlePopupClose} filmInfo={filmInfo} filmDetails={filmDetails} />
+      <Footer />
     </div>
   );
 }
