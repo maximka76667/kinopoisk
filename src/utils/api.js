@@ -23,7 +23,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://www.omdbapi.com/',
+  baseUrl: 'https://www.omdbapi.com/',
   authorization: '333826fc'
 });
 
