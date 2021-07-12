@@ -1,0 +1,4 @@
+.film__poster-wrapper_loading::before {
+  content: '';
+  background: url(../../../../images/loading.gif) 50% no-repeat;
+}

@@ -1,14 +1,16 @@
-function Popup({isPopupOpen, closePopup, filmInfo, filmDetails}) {
+function Popup({isPopupOpen, closePopup, filmDetails}) {
   return (
     <div className={`popup ${isPopupOpen ? 'popup_opened' : ''}`}>
       <div className="popup__overlay" onClick={closePopup}></div>
       <div className="popup__container">
-        <img src={filmInfo.Poster} alt={filmInfo.Title} />
-        <h2>{filmInfo.Title}</h2>
-        <p>{filmInfo.Year}</p>
-        <p>{filmDetails.Plot}</p>
-        <p>{filmDetails.Runtime}</p>
-        <button onClick={closePopup}>Закрыть</button>
+        <img className="popup__poster" src={filmDetails.Poster} alt={filmDetails.Title} />
+        <div className="popup__info">
+          <h2 className="popup__title">{filmDetails.Title}</h2>
+          <p className="popup__plot">{filmDetails.Plot}</p>
+          <p className="popup__year">Release Date: {filmDetails.Year}</p>
+          <p className="popup__runtime">Runtime: {filmDetails.Runtime}</p>
+        </div>
+        <button className="popup__close-button" onClick={closePopup}></button>
       </div>
     </div>
   )

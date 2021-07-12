@@ -3,11 +3,13 @@ function Film(props) {
   const film = props.film;
 
   return (
-    <article className="film">
-      <div className={`film__poster-wrapper ${props.isLoading ? 'film__poster-wrapper_loading' : ''}`} onClick={() => props.onCardClick(film)}>
+    <article className="film" onClick={() => props.onCardClick(film)}>
+      <div className={`film__poster-wrapper ${props.isLoading ? 'film__poster-wrapper_loading' : ''}`}>
         <img className="film__poster" src={film.Poster} alt={film.Title} />
       </div>
-      <p className="film__title">{film.Title} ({film.Year})</p>
+      <div className="film__heading">
+        <h3 className="film__title">{film.Title} ({film.Year})</h3>
+      </div>
     </article>
   )
 }

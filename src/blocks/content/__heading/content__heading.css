@@ -1,0 +1,9 @@
+.content__heading {
+  font-size: 70px;
+  width: 50%;
+  margin: 100px auto 60px;
+}
+
+.content__heading span {
+  color: #ffa500;
+}

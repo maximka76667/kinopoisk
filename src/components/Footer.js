@@ -3,8 +3,8 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <p>©{currentYear} Maxim Grivennyy with <a href="http://www.omdbapi.com/">OMDb API</a></p>
+    <footer className="footer">
+      <p className="footer__copyright">©{currentYear} <span>Maxim Grivennyy</span> with <a className="footer__link" href="http://www.omdbapi.com/">OMDb API</a></p>
     </footer>
   )
 }

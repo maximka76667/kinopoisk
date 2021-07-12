@@ -1,7 +1,8 @@
 .film__poster-wrapper {
   position: relative;
-  cursor: pointer;
   z-index: 5;
+  height: 80%;
+  overflow: hidden;
 }
 
 .film__poster-wrapper::before {
@@ -15,13 +16,4 @@
   height: 100%;
   opacity: 0;
   z-index: 1;
-}
-
-.film__poster-wrapper:hover::before {
-  opacity: 0.3;
-}
-
-.film__poster-wrapper_loading::before {
-  content: '';
-  background: url(../../../images/loading.gif) 50% no-repeat;
 }

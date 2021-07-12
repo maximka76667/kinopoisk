@@ -1,14 +1,23 @@
+@import url(./vendor/normalize.css);
+@import url(./fonts/fonts.css);
+
 /* Blocks */
+@import url(./blocks/page/page.css);
 @import url(./blocks/header/header.css);
+@import url(./blocks/content/content.css);
 @import url(./blocks/form/form.css);
 @import url(./blocks/films/films.css);
 @import url(./blocks/film/film.css);
 @import url(./blocks/popup/popup.css);
+@import url(./blocks/footer/footer.css);
 
 /* Elements */
 
 /* Header elements */
 @import url(./blocks/header/__heading/header__heading.css);
+
+/* Content elements */
+@import url(./blocks/content/__heading/content__heading.css);
 
 /* Form elements */
 @import url(./blocks/form/__input/form__input.css);
@@ -17,10 +26,20 @@
 /* Film elements */
 @import url(./blocks/film/__poster-wrapper/film__poster-wrapper.css);
 @import url(./blocks/film/__poster/film__poster.css);
+@import url(./blocks/film/__heading/film__heading.css);
+@import url(./blocks/film/__title/film__title.css);
 
 /* Popup elements */
+@import url(./blocks/popup/__container/popup__container.css);
 @import url(./blocks/popup/__overlay/popup__overlay.css);
+@import url(./blocks/popup/__info/popup__info.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__close-button/popup__close-button.css);
+
+/* Footer elements */
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+@import url(./blocks/footer/__link/footer__link.css);
 
 /* Modifiers */
-
 @import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/film/__poster-wrapper/_loading/film__poster-wrapper_loading.css);

@@ -54,10 +54,11 @@ function App() {
 
   function handlePopupClose() {
     setIsPopupOpen(false);
+    setIsLoading(false);
   }
 
   return (
-    <div className="App">
+    <div className="page">
       <Header />
       <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} isLoading={isLoading} />
       <Popup isPopupOpen={isPopupOpen} closePopup={handlePopupClose} filmInfo={filmInfo} filmDetails={filmDetails} />

@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header className="header">
-      <h1 className="header__heading">KinoPoisk</h1>
+      <a href="/" className="header__heading">KinoPoisk</a>
     </header>
   )
 }

@@ -1,4 +1,17 @@
 .form__submit-button {
   width: 100px;
   height: 50px;
+  margin: 0 0 0 10px;
+  padding: 0;
+  background-color: #ffa500;
+  outline: 0;
+  border: 0;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.form__submit-button:hover,
+.form__submit-button:focus {
+  background-color: #000;
+  color: #fff;
 }

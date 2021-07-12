@@ -1,3 +1,11 @@
 .header__heading {
-  font-size: 60px;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 0 auto;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.header__heading:hover {
+  color: #ffa500;
 }

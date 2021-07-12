@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Object Sans';
+  src: url(./ObjectSans-Regular.woff2);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Object Sans';
+  src: url(./ObjectSans-Heavy.woff2);
+  font-weight: 800;
+}

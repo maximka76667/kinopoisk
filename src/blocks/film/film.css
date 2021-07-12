@@ -1,5 +1,16 @@
 .film {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: left;
+  cursor: pointer;
+  height: 500px;
+  width: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.film:hover {
+  margin-top: -15px;
 }
