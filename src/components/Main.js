@@ -1,58 +1,65 @@
 import Film from "./Film";
 import anime from 'animejs/lib/anime.es.js';
 import React from "react";
+import Heart from './Heart'
 
 function Main(props) {
 
-  React.useEffect(() => {
-
-    let mouseX = '50%';
-    let mouseY = '50%';
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    })
-
-    const container = document.querySelector('.searcher');
-    for(let i = 0; i < 100; i++) {
-      const block = document.createElement('div');
-      block.classList.add('block');
-      container.appendChild(block);
+  function createHearts() {
+    let arr = [];
+    for(let i = 0; i < 10; i++) {
+      arr.push(<Heart />);
     }
+    return arr
+  }
+
+
+
+  React.useEffect(() => {
+    
 
     anime({
-      targets: '.searcher .block:nth-child(-n+50)',
+      targets: '.block:nth-child(-n+5)',
       translateX: () => {
-        return anime.random(-700, -400);
+        return anime.random(-900, -600);
       },
       translateY: () => {
-        return anime.random(-400, 400);
+        return anime.random(-600, 300);
       },
-      backgroundColor: () => {
-        return '#' + anime.random(303030, 999999)
+      fill: () => {
+        return '#' + 'ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
       },
+      rotate: () => {
+        return anime.random(-30, 30) + 'deg'
+      },
+      opacity: [0, .8],
       delay: anime.stagger(100),
     });
 
     anime({
-      targets: '.searcher .block:nth-last-child(-n+50)',
+      targets: '.block:nth-last-child(-n+5)',
       translateX: () => {
-        return anime.random(400, 700);
+        return anime.random(300, 800);
       },
       translateY: () => {
-        return anime.random(-400, 400);
+        return anime.random(-600, 300);
       },
-      backgroundColor: () => {
-        return '#' + anime.random(303030, 999999)
+      fill: () => {
+        return '#' + 'ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
       },
+      rotate: () => {
+        return anime.random(-30, 30) + 'deg'
+      },
+      opacity: [0, .8],
       delay: anime.stagger(100),
     });
   }, [])
 
   return (
     <main className="content">
-      <div className="searcher"></div>
+      <div className="searcher">
+        {createHearts()}
+      </div>
         <h1 className="content__heading">Enter the name of the movie and press the <span>search</span> button</h1>
         <form className="form" onSubmit={props.onSearch}>
           <input className="form__input" id="title" value={props.title} placeholder="Name of the movie" onChange={props.onChange} required />

@@ -20,6 +20,7 @@
 
 /* Content elements */
 @import url(./blocks/content/__heading/content__heading.css);
+@import url(./blocks/searcher/__loading/searcher__loading.css);
 
 /* Form elements */
 @import url(./blocks/form/__input/form__input.css);
@@ -45,3 +46,5 @@
 /* Modifiers */
 @import url(./blocks/popup/_opened/popup_opened.css);
 @import url(./blocks/film/__poster-wrapper/_loading/film__poster-wrapper_loading.css);
+@import url(./blocks/block/_pos/block_pos_left.css);
+@import url(./blocks/block/_pos/block_pos_right.css);

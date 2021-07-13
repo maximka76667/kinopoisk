@@ -1,0 +1,10 @@
+.block_pos_left {
+  width: 30px;
+  height: 50px;
+  background: inherit;
+  border-radius: 15px 15px 0 0;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0;
+  left: 7px;
+}
