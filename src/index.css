@@ -26,6 +26,9 @@
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/form/__submit-button/form__submit-button.css);
 
+/* Films */
+@import url(./blocks/films/__error/films__error.css);
+
 /* Film elements */
 @import url(./blocks/film/__poster-wrapper/film__poster-wrapper.css);
 @import url(./blocks/film/__poster/film__poster.css);

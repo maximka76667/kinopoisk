@@ -8,7 +8,7 @@ function Main(props) {
   function createHearts() {
     let arr = [];
     for(let i = 0; i < 10; i++) {
-      arr.push(<Heart />);
+      arr.push(<Heart key={i} />);
     }
     return arr
   }
@@ -16,8 +16,6 @@ function Main(props) {
 
 
   React.useEffect(() => {
-    
-
     anime({
       targets: '.block:nth-child(-n+5)',
       translateX: () => {
@@ -27,7 +25,7 @@ function Main(props) {
         return anime.random(-600, 300);
       },
       fill: () => {
-        return '#' + 'ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
+        return '#ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
       },
       rotate: () => {
         return anime.random(-30, 30) + 'deg'
@@ -45,7 +43,7 @@ function Main(props) {
         return anime.random(-600, 300);
       },
       fill: () => {
-        return '#' + 'ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
+        return '#ff' + anime.random(0, 256).toString(16) + anime.random(0, 256).toString(16);
       },
       rotate: () => {
         return anime.random(-30, 30) + 'deg'
@@ -66,6 +64,7 @@ function Main(props) {
           <button className="form__submit-button" type="submit">{ props.isSearching ? 'Searching...' : 'Click' }</button>
         </form>
       { props.isSearching && <p className="searcher__loading">Searching...</p> }
+      <p className="films__error">{props.error}</p>
       <div className="films">
         {
           props.films.map((film) => {
