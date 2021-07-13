@@ -5,11 +5,13 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/content/content.css);
+@import url(./blocks/searcher/searcher.css);
 @import url(./blocks/form/form.css);
 @import url(./blocks/films/films.css);
 @import url(./blocks/film/film.css);
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/footer/footer.css);
+@import url(./blocks/block/block.css);
 
 /* Elements */
 
