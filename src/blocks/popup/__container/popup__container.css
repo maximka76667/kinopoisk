@@ -1,5 +1,6 @@
 .popup__container {
-  width: 60%;
+  min-width: 60%;
+  max-width: 80%;
   padding: 30px;
   background-color: #fff;
   position: relative;
@@ -12,6 +13,5 @@
     width: 100%;
     flex-direction: column;
     padding: 15px;
-    overflow: scroll;
   }
 }
