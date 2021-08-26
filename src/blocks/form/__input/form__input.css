@@ -11,3 +11,15 @@
 .form__input:focus {
   outline: 1px solid #ccc;
 }
+
+@media (max-width: 800px) {
+  .form__input {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form__input {
+    font-size: 15px;
+  }
+}

@@ -4,7 +4,7 @@ function Film(props) {
 
   return (
     <article className="film" onClick={() => props.onCardClick(film)}>
-      <div className={`film__poster-wrapper ${props.isLoading ? 'film__poster-wrapper_loading' : ''}`}>
+      <div className="film__poster-wrapper">
         <img className="film__poster" src={film.Poster} alt={film.Title} />
       </div>
       <div className="film__heading">

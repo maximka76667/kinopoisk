@@ -2,3 +2,15 @@
   font-size: 40px;
   text-align: center;
 }
+
+@media (max-width: 800px) {
+  .searcher__loading {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .searcher__loading {
+    font-size: 20px;
+  }
+}

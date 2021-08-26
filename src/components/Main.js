@@ -61,19 +61,19 @@ function Main(props) {
         <h1 className="content__heading">Enter the name of the movie and press the <span>search</span> button</h1>
         <form className="form" onSubmit={props.onSearch}>
           <input className="form__input" id="title" value={props.title} placeholder="Name of the movie" onChange={props.onChange} required />
-          <button className="form__submit-button" type="submit">{ props.isSearching ? 'Searching...' : 'Click' }</button>
+          <button className="form__submit-button" type="submit">{ props.isSearching ? 'Searching...' : 'Search' }</button>
         </form>
       { props.isSearching && <p className="searcher__loading">Searching...</p> }
       <p className="films__error">{props.error}</p>
-      <div className="films">
+      { props.films.length ? <div className="films">
         {
           props.films.map((film) => {
             return (
-              <Film key={film.imdbID} film={film} onCardClick={props.onCardClick} isLoading={props.isLoading} />
+              <Film key={film.imdbID} film={film} onCardClick={props.onCardClick} />
             )
           })
         }
-      </div>
+      </div> : ''}
     </main>
   )
 }

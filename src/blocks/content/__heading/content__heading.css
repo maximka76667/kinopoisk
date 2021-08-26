@@ -8,3 +8,17 @@
 .content__heading span {
   color: #ffa500;
 }
+
+@media (max-width: 800px) {
+  .content__heading {
+    font-size: 50px;
+    margin: 30px auto 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content__heading {
+    font-size: 30px;
+    margin: 10px auto 10px;
+  }
+}

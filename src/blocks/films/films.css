@@ -1,9 +1,22 @@
 .films {
   padding: 50px 0;
   display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(3, minmax(100px, 300px));
   grid-auto-rows: 500px;
   gap: 50px;
   margin: 0 auto;
-  width: 1000px;
+}
+
+@media (max-width: 800px) {
+  .films {
+    grid-template-columns: repeat(2, minmax(100px, 300px));
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .films {
+    grid-template-columns: 100%;
+    padding: 10px 0;
+  }
 }

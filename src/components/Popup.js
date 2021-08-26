@@ -7,8 +7,8 @@ function Popup({isPopupOpen, closePopup, filmDetails}) {
         <div className="popup__info">
           <h2 className="popup__title">{filmDetails.Title}</h2>
           <p className="popup__plot">{filmDetails.Plot}</p>
-          <p className="popup__year">Release Date: {filmDetails.Year}</p>
-          <p className="popup__runtime">Runtime: {filmDetails.Runtime}</p>
+          <p className="popup__year"><span>Release Date:</span> {filmDetails.Year}</p>
+          <p className="popup__runtime"><span>Runtime:</span> {filmDetails.Runtime}</p>
         </div>
         <button className="popup__close-button" onClick={closePopup}></button>
       </div>

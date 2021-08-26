@@ -15,7 +15,6 @@ function App() {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 
   const [isSearching, setIsSearching] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState('');
 
   function handleChange(e) {
@@ -31,41 +30,34 @@ function App() {
     setIsSearching(true);
     api.searchFilmsByName(title)
     .then(res => {
-      if(res.Search) {
-        setFilms(res.Search);
-      } else {
-        setError(res.Error);
-      }
+      if(res.Search) return setFilms(res.Search);
+      return setError(res.Error);
     })
     .catch((err) => console.log(err))
     .finally(() => setIsSearching(false))
   }
 
   function handleCardClick(film) {
-    setIsLoading(true);
     if(film.imdbID !== activeID) {
       setActiveID(film.imdbID);
-      api.getFilmByID(film.imdbID)
+      return api.getFilmByID(film.imdbID)
       .then((res) => {
         setFilmDetails(res);
         setIsPopupOpen(true);
       })
       .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false))
-    } else {
-      setIsPopupOpen(true);
     }
+    return setIsPopupOpen(true);
   }
 
   function handlePopupClose() {
     setIsPopupOpen(false);
-    setIsLoading(false);
   }
 
   return (
     <div className="page">
       <Header />
-      <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} isLoading={isLoading} error={error} />
+      <Main films={films} onSearch={handleSearch} onCardClick={handleCardClick} onChange={handleChange} isSearching={isSearching} error={error} />
       <Popup isPopupOpen={isPopupOpen} closePopup={handlePopupClose} filmDetails={filmDetails} />
       <Footer />
     </div>
