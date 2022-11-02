@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import api from '../utils/api'
 import Footer from './Footer';
 import Header from './Header';
@@ -7,15 +7,15 @@ import Popup from './Popup';
 
 function App() {
 
-  const [title, setTitle] = React.useState('');
-  const [films, setFilms] = React.useState([]);
-  const [activeID, setActiveID] = React.useState('');
-  const [filmDetails, setFilmDetails] = React.useState({});
+  const [title, setTitle] = useState('');
+  const [films, setFilms] = useState([]);
+  const [activeID, setActiveID] = useState('');
+  const [filmDetails, setFilmDetails] = useState({});
 
-  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const [isSearching, setIsSearching] = React.useState(false);
-  const [error, setError] = React.useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const [error, setError] = useState('');
 
   function handleChange(e) {
     setTitle(e.target.value);
@@ -38,16 +38,17 @@ function App() {
   }
 
   function handleCardClick(film) {
-    if(film.imdbID !== activeID) {
-      setActiveID(film.imdbID);
-      return api.getFilmByID(film.imdbID)
-      .then((res) => {
-        setFilmDetails(res);
-        setIsPopupOpen(true);
-      })
-      .catch((err) => console.log(err))
+    if(film.imdbID === activeID) {
+      return setIsPopupOpen(true);
     }
-    return setIsPopupOpen(true);
+
+    setActiveID(film.imdbID);
+    return api.getFilmByID(film.imdbID)
+    .then((res) => {
+      setFilmDetails(res);
+      setIsPopupOpen(true);
+    })
+    .catch((err) => console.log(err))
   }
 
   function handlePopupClose() {

@@ -1,5 +1,5 @@
 .form__submit-button {
-  width: 150px;
+  width: 15%;
   height: 50px;
   margin: 0 0 0 10px;
   padding: 0;
@@ -14,4 +14,16 @@
 .form__submit-button:focus {
   background-color: #000;
   color: #fff;
+}
+
+@media (max-width: 800px) {
+  .form__submit-button {
+    width: 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .form__submit-button {
+    width: 20%;
+  }
 }

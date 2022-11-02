@@ -1,25 +1,35 @@
 .form__input {
-  width: 400px;
+  min-width: 400px;
+  width: 30%;
   border: 0;
   padding: 15px;
   margin: 0;
-  font-size: 25px;
+  font-size: 20px;
   outline: 0;
   border-bottom: 1px solid #ccc;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transition: all 0.2s;
 }
 
 .form__input:focus {
-  outline: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 15px;
 }
 
 @media (max-width: 800px) {
   .form__input {
-    font-size: 20px;
+    min-width: 150px;
+    width: 50%;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 600px) {
   .form__input {
-    font-size: 15px;
+    min-width: 50px;
+    width: 50%;
+    font-size: 14px;
   }
 }

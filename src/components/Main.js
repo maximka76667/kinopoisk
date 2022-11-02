@@ -1,11 +1,11 @@
 import Film from "./Film";
 import anime from 'animejs/lib/anime.es.js';
-import React from "react";
+import React, { useEffect } from "react";
 import Heart from './Heart'
 
 function Main(props) {
 
-  function createHearts() {
+  function renderHearts() {
     let arr = [];
     for(let i = 0; i < 10; i++) {
       arr.push(<Heart key={i} />);
@@ -15,7 +15,7 @@ function Main(props) {
 
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     anime({
       targets: '.block:nth-child(-n+5)',
       translateX: () => {
@@ -56,12 +56,16 @@ function Main(props) {
   return (
     <main className="content">
       <div className="searcher">
-        {createHearts()}
+        {renderHearts()}
       </div>
         <h1 className="content__heading">Enter the name of the movie and press the <span>search</span> button</h1>
         <form className="form" onSubmit={props.onSearch}>
           <input className="form__input" id="title" value={props.title} placeholder="Name of the movie" onChange={props.onChange} required />
-          <button className="form__submit-button" type="submit">{ props.isSearching ? 'Searching...' : 'Search' }</button>
+          <button className="form__submit-button" type="submit">{ 
+          props.isSearching ? 
+          'Searching...' : 
+          'Search' 
+          }</button>
         </form>
       { props.isSearching && <p className="searcher__loading">Searching...</p> }
       <p className="films__error">{props.error}</p>
